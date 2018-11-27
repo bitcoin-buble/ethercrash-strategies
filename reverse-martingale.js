@@ -30,7 +30,7 @@ function getOptimalBaseBet(gamesUntilBankrupt) {
 
 const handleStart = info => {
   console.log("Game Starting in " + info.time_till_start);
-  console.log(`Placing bet ${bet}`);
+  console.log(`Placing bet ${bet} at ${cashOutPercent / 100}x`);
   engine.placeBet(bet, cashOutPercent);
   totalStake += bet;
 };
@@ -38,10 +38,10 @@ const handleStart = info => {
 const handleCrash = data => {
   console.log("Game crashed at ", data.game_crash);
   console.log(data);
-  cashOutPercent += 100;
   if (data.game_crash >= cashOutPercent) {
-    bet = getOptimalBaseBet(gamesUntilBankrupt);
     cashOutPercent = baseCashOutPercent;
+  } else {
+    cashOutPercent += 100;
   }
 
   if (data.bonuses && data.bonuses[username]) {

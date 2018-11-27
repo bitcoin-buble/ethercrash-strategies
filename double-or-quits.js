@@ -1,7 +1,7 @@
 /*********************************************/
 
-const gamesUntilBankrupt = 13;
-const cashOutPercent = 213;
+window.gamesUntilBankrupt = 13;
+window.cashOutPercent = 213;
 
 /*********************************************/
 
@@ -32,7 +32,7 @@ let totalBonus = 0;
 
 engine.on("game_starting", function(info) {
   console.log("Game Starting in " + info.time_till_start);
-  console.log(`Placing bet ${bet}`);
+  console.log(`Placing bet ${bet} at ${cashOutPercent / 100}x`);
   engine.placeBet(bet, cashOutPercent);
   totalStake = totalStake + bet;
 });
