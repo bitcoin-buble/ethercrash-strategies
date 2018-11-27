@@ -5,7 +5,7 @@ const baseCashOutPercent = 120;
 
 /*********************************************/
 
-let cashOutPercent = cashOutPercent;
+let cashOutPercent = baseCashOutPercent;
 const username = engine.getUsername();
 
 let bet = getOptimalBaseBet(gamesUntilBankrupt);
@@ -20,7 +20,7 @@ function getOptimalBaseBet(gamesUntilBankrupt) {
   const roundedBet = Math.floor(baseBet / 100) * 100;
 
   console.log(
-    `Optimal base bet for ${gamesUntilBankrupt} games till bankrupt... ${Math.floor(
+    `Optimal base bet for ${gamesUntilBankrupt} games until bankrupt... ${Math.floor(
       roundedBet
     )}`
   );
